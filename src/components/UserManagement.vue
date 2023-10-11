@@ -47,8 +47,8 @@
 
       <el-table-column
           align="center"
-          label="用户姓名"
-          prop="userName">
+          label="用户昵称"
+          prop="userNickname">
       </el-table-column>
 
       <el-table-column

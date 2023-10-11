@@ -6,7 +6,7 @@
         <div class="user-avatar">
           <img :src=" baseAddress + userImage +'&token=' + token " alt=""/>
         </div>
-        <span class="container" style="font-size: 12px">{{userName}}</span>
+        <span class="container" style="font-size: 12px">{{userNickname}}</span>
       </div>
       <el-dropdown-menu slot="dropdown">
         <el-dropdown-item command="a">退出登录</el-dropdown-item>
@@ -32,13 +32,13 @@ export default {
       visibleEditUserDialog: false,
       token: getToken(),
       userImage: undefined,
-      userName: undefined
+      userNickname: undefined
     }
   },
   mounted() {
     this.$bus.$on('userDataNav', data => {
       this.userImage = data.userImg
-      this.userName = data.userAccount
+      this.userNickname = data.userAccount
     })
   },
   methods: {
