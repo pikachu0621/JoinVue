@@ -24,7 +24,7 @@
           </el-radio-group>
         </el-form-item>
         <el-form-item label="用户姓名">
-          <el-input v-model="formData.userName" placeholder="请输入用户姓名" clearable :style="{width: '100%'}">
+          <el-input v-model="formData.userNickname" placeholder="请输入用户昵称" clearable :style="{width: '100%'}">
           </el-input>
         </el-form-item>
         <el-form-item label="单位组织">
@@ -96,7 +96,7 @@ export default {
         userAge: undefined,
         userPassword: undefined,
         userSex: false,
-        userName: undefined,
+        userNickname: undefined,
         userUnit: undefined,
         userBirth: undefined,
         userIntroduce: undefined,
@@ -108,7 +108,7 @@ export default {
         userAge: [],
         userPassword: [],
         userSex: [],
-        userName: [],
+        userNickname: [],
         userUnit: [],
         userBirth: [],
         userIntroduce: [],
@@ -146,7 +146,7 @@ export default {
       this.formData.userAccount = this.tableData.userAccount
       this.formData.userAge = this.tableData.userAge
       this.formData.userSex = this.tableData.userSex
-      this.formData.userName = this.tableData.userName
+      this.formData.userNickname = this.tableData.userNickname
       this.formData.userUnit = this.tableData.userUnit
       this.formData.userBirth = this.tableData.userBirth
       this.formData.userIntroduce = this.tableData.userIntroduce
@@ -221,7 +221,7 @@ export default {
                   "user_id": this.tableData.id,
                   "password": (this.formData.userPassword === undefined || this.formData.userPassword == null || this.formData.userPassword === '') ? '' : this.formData.userPassword,
                   "sex": this.formData.userSex,
-                  "name": this.formData.userName,
+                  "nickname": this.formData.userNickname,
                   "unit": this.formData.userUnit,
                   "birth": this.formData.userBirth,
                   "introduce": this.formData.userIntroduce,

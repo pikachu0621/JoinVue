@@ -178,7 +178,7 @@ export default {
                   "user_id": this.tableData.id,
                   "password": (this.formData.userPassword === undefined || this.formData.userPassword == null || this.formData.userPassword === '') ? '' : this.formData.userPassword,
                   "sex": this.formData.userSex,
-                  "name": this.formData.userName,
+                  "name": this.formData.userNickname,
                   "unit": this.formData.userUnit,
                   "birth": this.formData.userBirth,
                   "introduce": this.formData.userIntroduce,

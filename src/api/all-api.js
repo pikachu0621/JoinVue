@@ -1,4 +1,4 @@
-import myfRequest from "../utils/request/request";
+import pgpRequest from "../utils/request/request";
 
 
 /**
@@ -10,8 +10,8 @@ import myfRequest from "../utils/request/request";
  * @returns {Promise<AxiosResponse<any>>}
  */
 export function rootLogin(account, password){
-    return myfRequest.post({
-        url: '/myf-bg-api/login',
+    return pgpRequest.post({
+        url: '/pk-bg-api/login',
         data: { "account": account, "password": password},
     })
 }
@@ -24,8 +24,8 @@ export function rootLogin(account, password){
  * @returns {Promise<AxiosResponse<any>>}
  */
 export function rootInfo(token){
-    return myfRequest.get({
-        url:`/myf-bg-api/info?token=${token}`,
+    return pgpRequest.get({
+        url:`/pk-bg-api/info?token=${token}`,
     })
 }
 
@@ -37,8 +37,8 @@ export function rootInfo(token){
  * @returns {Promise<AxiosResponse<any>>}
  */
 export function rootAllUser(){
-    return myfRequest.get({
-        url:`/myf-bg-api/all-user`,
+    return pgpRequest.get({
+        url:`/pk-bg-api/all-user`,
     })
 }
 
@@ -50,8 +50,8 @@ export function rootAllUser(){
  * @returns {Promise<AxiosResponse<any>>}
  */
 export function rootAllUserEdit(userData){
-    return myfRequest.post({
-        url:`/myf-bg-api/edit-user`,
+    return pgpRequest.post({
+        url:`/pk-bg-api/edit-user`,
         data: userData,
     })
 }
@@ -64,8 +64,8 @@ export function rootAllUserEdit(userData){
  * @returns {Promise<AxiosResponse<any>>}
  */
 export function rootAllUserDel(userId){
-    return myfRequest.get({
-        url:`/myf-bg-api/del-user/${userId}`
+    return pgpRequest.get({
+        url:`/pk-bg-api/del-user/${userId}`
     })
 }
 
@@ -79,8 +79,8 @@ export function rootAllUserDel(userId){
  * @returns {Promise<AxiosResponse<any>>}
  */
 export function rootAllGroup(){
-    return myfRequest.get({
-        url:`/myf-bg-api/all-group`,
+    return pgpRequest.get({
+        url:`/pk-bg-api/all-group`,
     })
 }
 
@@ -92,8 +92,8 @@ export function rootAllGroup(){
  * @returns {Promise<AxiosResponse<any>>}
  */
 export function rootAllGroupDel(groupId){
-    return myfRequest.get({
-        url:`/myf-bg-api/del-group/${groupId}`
+    return pgpRequest.get({
+        url:`/pk-bg-api/del-group/${groupId}`
     })
 }
 
@@ -105,7 +105,7 @@ export function rootAllGroupDel(groupId){
  * @returns {Promise<AxiosResponse<any>>}
  */
 export function getGroupType(){
-    return myfRequest.get({
-        url:`/myf-puc-api/puc-group-type`,
+    return pgpRequest.get({
+        url:`/pk-puc-api/puc-group-type`,
     })
 }

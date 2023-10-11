@@ -3,5 +3,5 @@ module.exports = defineConfig({
   transpileDependencies: true,
   assetsDir:"./assets",
   publicPath:"./",
-  outputDir:"D:\\CodeProject\\JavaWebProject\\MyfJoinSpring\\src\\main\\resources\\static\\admin\\"
+  outputDir:"D:\\CodeProject\\JavaWebProject\\JoinSpring\\src\\main\\resources\\static\\admin\\"
 })

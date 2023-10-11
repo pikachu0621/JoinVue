@@ -1,6 +1,6 @@
 //封装post，get,patch 请求
 import { request } from "./servies";
-const myfRequest = {
+const pgpRequest = {
 
     post(config){
         config.transformRequest= [
@@ -27,4 +27,4 @@ const myfRequest = {
 }
 
 
-export default myfRequest
+export default pgpRequest
