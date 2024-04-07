@@ -18,7 +18,7 @@
 
 <script>
 import MyFrame from "./MyFrame.vue";
-import {BASE_ADDRESS} from "@/utils/request/config";
+import {BASE_ADDRESS} from "@/config";
 import {getToken, removeToken} from "@/utils/auth";
 
 export default {

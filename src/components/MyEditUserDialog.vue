@@ -71,7 +71,7 @@
 <script>
 import {Message} from "element-ui";
 import {getToken} from "@/utils/auth";
-import {BASE_ADDRESS} from "@/utils/request/config";
+import {BASE_ADDRESS} from "@/config";
 import {requestCallback} from "@/utils/request/servies";
 import {rootAllUserEdit} from "@/api/all-api";
 
@@ -216,20 +216,18 @@ export default {
               spinner: 'el-icon-loading',
               background: 'rgba(0, 0, 0, 0.7)'
             })
-            requestCallback(rootAllUserEdit(
-                {
-                  "user_id": this.tableData.id,
-                  "password": (this.formData.userPassword === undefined || this.formData.userPassword == null || this.formData.userPassword === '') ? '' : this.formData.userPassword,
-                  "sex": this.formData.userSex,
-                  "nickname": this.formData.userNickname,
-                  "unit": this.formData.userUnit,
-                  "birth": this.formData.userBirth,
-                  "introduce": this.formData.userIntroduce,
-                  "grade": this.formData.userGrade,
-                  "limit": this.formData.userLimit,
-                  "image": (this.file_raw === undefined || this.file_raw == null || this.file_raw === '') ? '' : this.file_raw,
-                }
-            ), () => {
+            requestCallback(rootAllUserEdit({
+              userId: this.tableData.id,
+              userPassword: (this.formData.userPassword === undefined || this.formData.userPassword == null || this.formData.userPassword === '') ? '' : this.formData.userPassword,
+              userSex: this.formData.userSex,
+              userNickname: this.formData.userNickname,
+              userUnit: this.formData.userUnit,
+              userBirth: this.formData.userBirth,
+              userIntroduce: this.formData.userIntroduce,
+              userGrade: this.formData.userGrade,
+              userLimit: this.formData.userLimit,
+              userImage: (this.file_raw === undefined || this.file_raw == null || this.file_raw === '') ? '' : this.file_raw,
+            }), () => {
               loading.close()
               this.$bus.$emit("isRefresh", true)
               Message({
@@ -238,8 +236,8 @@ export default {
                 center: true
               })
               this.file_raw = undefined
-            }, (v,t) => {
-              if (t){
+            }, (v, t) => {
+              if (t) {
                 this.$bus.$emit("isShowLogin", true)
                 return
               }

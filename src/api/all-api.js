@@ -1,18 +1,18 @@
 import pgpRequest from "../utils/request/request";
-
-
+import {PREFIX} from '@/config'
 /**
  *
  * 用户登录
  *
  * @param account
  *
+ * @param password
  * @returns {Promise<AxiosResponse<any>>}
  */
-export function rootLogin(account, password){
-    return pgpRequest.post({
-        url: '/pk-bg-api/login',
-        data: { "account": account, "password": password},
+export function rootLogin(account, password) {
+    return pgpRequest.postForm({
+        url: `/${PREFIX}-bg-api/login`,
+        data: {account: account, password: password},
     })
 }
 
@@ -23,9 +23,9 @@ export function rootLogin(account, password){
  * @param token
  * @returns {Promise<AxiosResponse<any>>}
  */
-export function rootInfo(token){
+export function rootInfo(token) {
     return pgpRequest.get({
-        url:`/pk-bg-api/info?token=${token}`,
+        url: `/${PREFIX}-bg-api/info?token=${token}`,
     })
 }
 
@@ -36,9 +36,9 @@ export function rootInfo(token){
  *
  * @returns {Promise<AxiosResponse<any>>}
  */
-export function rootAllUser(){
+export function rootAllUser() {
     return pgpRequest.get({
-        url:`/pk-bg-api/all-user`,
+        url: `/${PREFIX}-bg-api/all-user`,
     })
 }
 
@@ -49,9 +49,10 @@ export function rootAllUser(){
  *
  * @returns {Promise<AxiosResponse<any>>}
  */
-export function rootAllUserEdit(userData){
-    return pgpRequest.post({
-        url:`/pk-bg-api/edit-user`,
+export function rootAllUserEdit(userData) {
+    //   headers: { 'Content-Type': 'application/json; charset=utf-8' },
+    return pgpRequest.postForm( {
+        url: `/${PREFIX}-bg-api/edit-user`,
         data: userData,
     })
 }
@@ -63,13 +64,11 @@ export function rootAllUserEdit(userData){
  *
  * @returns {Promise<AxiosResponse<any>>}
  */
-export function rootAllUserDel(userId){
+export function rootAllUserDel(userId) {
     return pgpRequest.get({
-        url:`/pk-bg-api/del-user/${userId}`
+        url: `/${PREFIX}-bg-api/del-user/${userId}`
     })
 }
-
-
 
 
 /**
@@ -78,9 +77,9 @@ export function rootAllUserDel(userId){
  *
  * @returns {Promise<AxiosResponse<any>>}
  */
-export function rootAllGroup(){
+export function rootAllGroup() {
     return pgpRequest.get({
-        url:`/pk-bg-api/all-group`,
+        url: `/${PREFIX}-bg-api/all-group`,
     })
 }
 
@@ -91,9 +90,9 @@ export function rootAllGroup(){
  *
  * @returns {Promise<AxiosResponse<any>>}
  */
-export function rootAllGroupDel(groupId){
+export function rootAllGroupDel(groupId) {
     return pgpRequest.get({
-        url:`/pk-bg-api/del-group/${groupId}`
+        url: `/${PREFIX}-bg-api/del-group/${groupId}`
     })
 }
 
@@ -104,8 +103,49 @@ export function rootAllGroupDel(groupId){
  *
  * @returns {Promise<AxiosResponse<any>>}
  */
-export function getGroupType(){
+export function getGroupType() {
     return pgpRequest.get({
-        url:`/pk-puc-api/puc-group-type`,
+        url: `/${PREFIX}-puc-api/puc-group-type`,
+    })
+}
+
+
+
+/**
+ *
+ * 获取配置
+ *
+ * @returns {Promise<AxiosResponse<any>>}
+ */
+export function queryAppConfig() {
+    return pgpRequest.get({url: `/${PREFIX}-bg-api/query-app-config`})
+}
+
+
+
+
+/**
+ *
+ * 修改配置
+ *
+ * @returns {Promise<AxiosResponse<any>>}
+ */
+export function editAppConfig(editConfig) {
+    return pgpRequest.post({
+        headers: {'Content-Type': 'application/json; charset=utf-8'},
+        url: `/${PREFIX}-bg-api/edit-config`,
+        data: editConfig
+    })
+}
+
+
+/**
+ * 获取 github logs
+ *
+ * @returns {Promise<AxiosResponse<any>>}
+ */
+export function getLogs(project = "JoinSpring") {
+    return pgpRequest.get({
+        url: `/${PREFIX}-puc-api/git-logs/${project}`
     })
 }

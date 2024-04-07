@@ -38,6 +38,7 @@
 
 <script>
 import {initEcharts} from "@/utils/echarts-utils";
+import {getLastDates, randomNumber} from "@/utils/time";
 
 export default {
   name: "MyMain",
@@ -65,14 +66,14 @@ export default {
           },
           xAxis: {
             type: 'category',
-            data: ['03-10', '03-11', '03-12', '03-13', '03-14', '03-15', '03-16']
+            data: getLastDates(7)
           },
           yAxis: {
             type: 'value'
           },
           series: [
             {
-              data: [230, 330, 332, 410, 435, 247, 600],
+              data: randomNumber(100, 800, 7),
               type: 'line',
               markLine: {
                 data: [{type: 'average', name: ''}]
@@ -152,7 +153,7 @@ export default {
           },
           xAxis: {
             type: 'category',
-            data: ['03-10', '03-11', '03-12', '03-13', '03-14', '03-15', '03-16']
+            data: getLastDates(7)
           },
           yAxis: {
             type: 'value'
@@ -160,7 +161,7 @@ export default {
           series: [
             {
               areaStyle: {},
-              data: [20, 10, 12, 10, 5, 6, 10],
+              data: randomNumber(2, 30),
               type: 'line',
               color: 'rgba(255,0,0,0.6)',
               markPoint: {
@@ -187,14 +188,14 @@ export default {
             trigger: 'axis'
           },
           xAxis: {
-            data: ['03-10', '03-11', '03-12', '03-13', '03-14', '03-15', '03-16'],
+            data: getLastDates(7),
           },
           yAxis: {},
           series: [
             {
               name: "软件新增用户",
               type: "bar",
-              data: [100, 150, 136, 110, 140, 180, 166],
+              data: randomNumber(100, 200),
               markLine: {
                 data: [{type: 'average', name: ''}]
               }

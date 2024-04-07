@@ -151,7 +151,7 @@ import {requestCallback} from "@/utils/request/servies";
 import {rootAllUser, rootAllUserDel, rootAllUserEdit} from "@/api/all-api";
 import {Message} from "element-ui";
 import {getToken} from "@/utils/auth";
-import {BASE_ADDRESS} from '@/utils/request/config'
+import {BASE_ADDRESS} from '@/config'
 import MyEditUserDialog from "./MyEditUserDialog.vue";
 
 export default {
@@ -230,8 +230,8 @@ export default {
       })
       requestCallback(rootAllUserEdit(
           {
-            "user_id": userId,
-            "limit": isLimit,
+            userId: userId,
+            userLimit: isLimit,
           }
       ), () => {
         this.refreshData()

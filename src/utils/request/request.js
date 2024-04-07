@@ -2,7 +2,7 @@
 import { request } from "./servies";
 const pgpRequest = {
 
-    post(config){
+    postForm(config){
         config.transformRequest= [
             function (data) {
                 let ret = ''
@@ -13,7 +13,11 @@ const pgpRequest = {
                 return ret
             }
         ]
-        config.headers = {'Content-Type': 'application/x-www-form-urlencoded'}
+        config.headers = {'Content-Type': 'application/x-www-form-urlencoded'} // application/x-www-form-urlencoded
+        return request({...config, method:'POST'})
+    },
+
+    post(config){
         return request({...config, method:'POST'})
     },
 

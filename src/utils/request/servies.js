@@ -1,7 +1,7 @@
 import axios from "axios";
 // 导入loading Loading 服务
 import {Message} from 'element-ui'
-import {BASE_ADDRESS, TIME_OUT, TOKEN_ERROR} from './config'
+import {BASE_ADDRESS, TIME_OUT, TOKEN_ERROR} from '@/config'
 import {getToken, removeToken} from "@/utils/auth";
 
 export function request(config) {
@@ -13,8 +13,7 @@ export function request(config) {
     service.interceptors.request.use(config => {
         config.headers['token'] = getToken()
         return config
-    }, () => {
-    })
+    }, () => {})
 
     // 响应拦截器
     service.interceptors.response.use(res => {

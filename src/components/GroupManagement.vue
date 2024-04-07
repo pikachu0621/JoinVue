@@ -100,7 +100,7 @@ import {requestCallback} from "@/utils/request/servies";
 import {rootAllGroup, rootAllGroupDel} from "@/api/all-api";
 import {Message} from "element-ui";
 import {getToken} from "@/utils/auth";
-import {BASE_ADDRESS} from '@/utils/request/config'
+import {BASE_ADDRESS} from '@/config'
 import MyEditGroupDialog from "./MyEditGroupDialog.vue";
 
 export default {

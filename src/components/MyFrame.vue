@@ -32,13 +32,13 @@
         <i class="el-icon-s-flag"></i>
         <span slot="title">签到管理</span>
       </el-menu-item>
-      <el-menu-item index="4">
+      <el-menu-item index="4"  @click="isShow = 'AppConfigManagement'">
         <i class="el-icon-s-platform"></i>
-        <span slot="title">前端设置</span>
+        <span slot="title">配置修改</span>
       </el-menu-item>
-      <el-menu-item index="5">
+      <el-menu-item index="5" @click="isShow = 'UpdataLogManagement'">
         <i class="el-icon-s-help"></i>
-        <span slot="title">管理员</span>
+        <span slot="title">更新日志</span>
       </el-menu-item>
     </el-menu>
 
@@ -54,6 +54,12 @@
         <transition name="fade">
           <GroupManagement v-show="isShow === 'GroupManagement'" class="chc"/>
         </transition>
+        <transition name="fade">
+          <AppConfigManagement v-show="isShow === 'AppConfigManagement'" class="chc"/>
+        </transition>
+        <transition name="fade">
+          <UpdataLogManagement v-show="isShow === 'UpdataLogManagement'" class="chc"/>
+        </transition>
       </div>
     </div>
   </div>
@@ -66,6 +72,8 @@ import MyMain from "./MyMain.vue";
 import UserManagement from "./UserManagement.vue";
 import GroupManagement from "./GroupManagement.vue";
 import MyNavbar from "./MyNavbar.vue";
+import AppConfigManagement from "@/components/AppConfigManagement.vue";
+import UpdataLogManagement from "@/components/UpdataLogManagement.vue";
 
 export default {
   name: "MyFrame",
@@ -73,6 +81,8 @@ export default {
     MyMain,
     UserManagement,
     GroupManagement,
+    AppConfigManagement,
+    UpdataLogManagement,
     MyNavbar
   },
   data() {
