@@ -28,7 +28,7 @@
         <template v-slot="scope">
           <el-image
               style="width: 26px; height: 26px; border-radius: 13px"
-              :src="baseAddress + scope.row.userImg +'&token=' + token"
+              :src="addTokenGet(baseAddress + scope.row.userImg)"
               :preview-src-list="previewSrcList">
           </el-image>
         </template>
@@ -150,7 +150,7 @@
 import {requestCallback} from "@/utils/request/servies";
 import {rootAllUser, rootAllUserDel, rootAllUserEdit} from "@/api/all-api";
 import {Message} from "element-ui";
-import {getToken} from "@/utils/auth";
+import {addTokenGet, getToken} from "@/utils/auth";
 import {BASE_ADDRESS} from '@/config'
 import MyEditUserDialog from "./MyEditUserDialog.vue";
 
@@ -180,10 +180,11 @@ export default {
   },
 
   methods: {
+    addTokenGet,
 
     loadImage(t) {
       t.forEach(v => {
-        this.previewSrcList.push(this.baseAddress + v.userImg + '&token=' + this.token)
+        this.previewSrcList.push(addTokenGet(this.baseAddress + v.userImg ))
       })
     },
     handleEdit(index, row) {

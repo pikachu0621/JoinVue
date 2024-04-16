@@ -70,7 +70,7 @@
 </template>
 <script>
 import {Message} from "element-ui";
-import {getToken} from "@/utils/auth";
+import {addTokenGet, getToken} from "@/utils/auth";
 import {BASE_ADDRESS} from "@/config";
 import {requestCallback} from "@/utils/request/servies";
 import {rootAllUserEdit} from "@/api/all-api";
@@ -152,7 +152,7 @@ export default {
       this.formData.userIntroduce = this.tableData.userIntroduce
       this.formData.userGrade = this.tableData.userGrade
       this.formData.userLimit = this.tableData.userLimit
-      this.image_url = this.baseAddress + this.tableData.userImg + '&token=' + this.token
+      this.image_url = addTokenGet(this.baseAddress + this.tableData.userImg)
     },
     onClose() {
       this.$refs['elForm'].resetFields()

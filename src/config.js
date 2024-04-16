@@ -3,7 +3,7 @@
 // 192.168.31.20
 // 127.0.0.1
 
-let BASE_IP = "42.192.221.73"
+let BASE_IP = "127.0.0.1"
 let BASE_PORT = "8012"
 let BASE_HTTP = "http"
 let TOKEN_ERROR = -3

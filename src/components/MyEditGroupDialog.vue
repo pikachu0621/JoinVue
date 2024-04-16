@@ -41,7 +41,7 @@
 </template>
 <script>
 import {Message} from "element-ui";
-import {getToken} from "@/utils/auth";
+import {addTokenGet, getToken} from "@/utils/auth";
 import {BASE_ADDRESS} from "@/config";
 import {requestCallback} from "@/utils/request/servies";
 import {getGroupType, rootAllUserEdit} from "@/api/all-api";
@@ -94,7 +94,7 @@ export default {
       this.formData.groupName = this.tableData.groupName
       this.formData.groupIntroduce = this.tableData.groupIntroduce
       this.formData.groupType = this.tableData.groupType
-      this.image_url = this.baseAddress + this.tableData.groupImg + '?token=' + this.token
+      this.image_url = addTokenGet(this.baseAddress + this.tableData.groupImg)
       this.getGroupType()
     },
     onClose() {

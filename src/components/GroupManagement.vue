@@ -29,7 +29,7 @@
         <template v-slot="scope">
           <el-image
               style="width: 26px; height: 26px; border-radius: 4px"
-              :src="baseAddress + scope.row.groupImg +'?token=' + token"
+              :src="addTokenGet(baseAddress + scope.row.groupImg )"
               :preview-src-list="previewSrcList">
           </el-image>
         </template>
@@ -99,7 +99,7 @@
 import {requestCallback} from "@/utils/request/servies";
 import {rootAllGroup, rootAllGroupDel} from "@/api/all-api";
 import {Message} from "element-ui";
-import {getToken} from "@/utils/auth";
+import {addTokenGet, getToken} from "@/utils/auth";
 import {BASE_ADDRESS} from '@/config'
 import MyEditGroupDialog from "./MyEditGroupDialog.vue";
 
@@ -129,10 +129,11 @@ export default {
   },
 
   methods: {
+    addTokenGet,
 
     loadImage(t) {
       t.forEach(v => {
-        this.previewSrcList.push(this.baseAddress + v.groupImg + '?token=' + this.token)
+        this.previewSrcList.push(addTokenGet(this.baseAddress + v.groupImg ))
       })
     },
     handleEdit(index, row) {

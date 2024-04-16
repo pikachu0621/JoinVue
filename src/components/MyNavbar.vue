@@ -4,7 +4,7 @@
     <el-dropdown style="float: right;" @command="handleCommand">
       <div>
         <div class="user-avatar">
-          <img :src=" baseAddress + userImage +'&token=' + token " alt=""/>
+          <img :src=" addTokenGet(baseAddress + userImage)" alt=""/>
         </div>
         <span class="container" style="font-size: 12px">{{userNickname}}</span>
       </div>
@@ -19,7 +19,7 @@
 <script>
 import MyFrame from "./MyFrame.vue";
 import {BASE_ADDRESS} from "@/config";
-import {getToken, removeToken} from "@/utils/auth";
+import {addTokenGet, getToken, removeToken} from "@/utils/auth";
 
 export default {
   name: "MyNavbar",
@@ -42,6 +42,7 @@ export default {
     })
   },
   methods: {
+    addTokenGet,
     navbarClick() {
       this.isCollapse = !this.isCollapse
       this.$bus.$emit("isCollapse", !this.isCollapse);
